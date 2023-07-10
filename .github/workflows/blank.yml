@@ -38,9 +38,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: [1, true, 'str', {"x": 1}]
+        x: [1, true, 'str', {"k": 'v'}]
         exclude:
-          - x: 'str'
+          - x: {"k":'v'}
     steps:
       - name: Run a one-line script
         run: echo '${{ toJSON(matrix.x) }}'
