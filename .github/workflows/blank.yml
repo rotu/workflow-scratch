@@ -18,7 +18,27 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: [false]
+        x: [true]
+        include:
+          - x: true
+            y: foo
+          - x: true
+            y: foo
+          - x: 'true'
+            y: foo
+          - x: 1
+            y: foo
+          - x: "true"
+            y: foo
+    name: ${{ toJSON(matrix) }}
+    steps:
+      - name: Run a one-line script
+        run: echo ${{ toJSON(matrix.x) }}
+  true-ish2:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        x: ['true']
         include:
           - x: true
             y: foo
