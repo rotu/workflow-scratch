@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: ['2','2','2']
         include:
+          - x: true
           - x: true
           - x: 'true'
           - x: 1
