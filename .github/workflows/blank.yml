@@ -38,11 +38,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: [1, true, 'str', {"k": 'v'}, {"k": 'v2'}, {"k2": 'v'}]
+        x: [1, true, 'str', ${{ fromJSON('{"k": "v"}') }}, {"k": 'v2'}, {"k2": 'v'}]
         exclude:
           - x: {"k":'v'}
     steps:
       - name: Run a one-line script
         run: echo '${{ toJSON(matrix.x) }}'
-      - if: matrix.x == {"k",'v'}
+      - if: matrix.x == fromJSON('{"k","v"}')
         run: echo foo
