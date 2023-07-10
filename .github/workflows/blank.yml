@@ -40,7 +40,7 @@ jobs:
       matrix:
         x: ['true', true, 1]
         exclude:
-          - x: true
+          - x: 'true'
     steps:
       - name: Run a one-line script
         run: echo '${{ toJSON(matrix.x) }}'
