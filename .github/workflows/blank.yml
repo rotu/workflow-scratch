@@ -14,16 +14,16 @@ on:
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  workflow-test:
-    # The type of runner that the job will run on
+  true-ish:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: [true, 'true', 1]
-        y: [0, 'blah', NaN]
-        exclude:
+        include:
           - x: true
-          - y: NaN
+          - x: 'true'
+          - x: 1
+          - x: "true"
+    name: ${{ toJSON(matrix.x) }}
     steps:
       - name: Run a one-line script
         run: echo ${{ toJSON(matrix.x) }}
