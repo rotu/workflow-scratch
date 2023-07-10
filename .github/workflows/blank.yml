@@ -43,4 +43,4 @@ jobs:
           - x: "baz"
     steps:
       - name: Run a one-line script
-        run: echo ${{ toJSON(matrix.x) }}
+        run: echo '${{ toJSON(matrix.x) }}'
