@@ -30,7 +30,7 @@ jobs:
             y: foo
           - x: "true"
             y: foo
-    name: ${{ toJSON(matrix.x) }}
+    name: ${{ toJSON(matrix) }}
     steps:
       - name: Run a one-line script
         run: echo ${{ toJSON(matrix.x) }}
