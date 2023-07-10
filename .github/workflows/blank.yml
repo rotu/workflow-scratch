@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        x: [1, true, 'str', {"k": 'v'}]
+        x: [1, true, 'str', {"k": 'v'}, {"k": 'v2'}, {"k2": 'v'}]
         exclude:
           - x: {"k":'v'}
     steps:
