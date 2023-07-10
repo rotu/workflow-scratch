@@ -40,7 +40,7 @@ jobs:
       matrix:
         x: [1, true, 'str', {'k':'v'}, {'k': 'v2'}, {'k2': 'v'}]
         exclude:
-          - x: {'k':'v'}
+          - x: NaN
     steps:
       - name: Run a one-line script
         run: echo '${{ toJSON(matrix.x) }}'
