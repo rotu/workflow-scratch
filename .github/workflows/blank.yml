@@ -44,5 +44,5 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo '${{ toJSON(matrix.x) }}'
-      - if: matrix.x == fromJSON('{"k","v"}')
+      - if: matrix.x == fromJSON('{"k":"v"}')
         run: echo foo
