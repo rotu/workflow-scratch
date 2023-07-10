@@ -20,8 +20,10 @@ jobs:
     strategy:
       matrix:
         x: [true, 'true', 1]
+        y: [0, 'blah', NaN]
         exclude:
           - x: true
+          - y: NaN
     steps:
       - name: Run a one-line script
         run: echo ${{ toJSON(matrix.x) }}
