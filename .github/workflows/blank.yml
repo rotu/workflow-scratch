@@ -28,10 +28,9 @@ jobs:
       - name: try it
         run: |
           env | grep var
-      - name: use unset
+      - name: delete files
         run: |
-          unset var1
-          export var1
+          rm $(dirname $GITHUB_ENV)/*
       - name: try it
         run: |
           env | grep var
