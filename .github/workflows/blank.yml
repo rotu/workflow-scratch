@@ -30,10 +30,7 @@ jobs:
           env | grep var
       - name: delete files
         run: |
-          rm $(dirname $GITHUB_ENV)/*
-    
+          rm -rf $(dirname $GITHUB_ENV)
       - name: try it
         run: |
           env | grep var
-      - name: tree
-        run: tree /
