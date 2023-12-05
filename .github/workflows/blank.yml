@@ -33,7 +33,7 @@ jobs:
           env | grep var
       - name: use unset
         run: |
-          echo "unset var1" >> "$GITHUB_ENV"
+          echo "var1" >> "$GITHUB_ENV"
       - name: try it
         run: |
           env | grep var
