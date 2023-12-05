@@ -14,17 +14,26 @@ on:
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  true-ish:
+  my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: set a
+      - name: set vars
         run: |
           echo "var1=1" >> "$GITHUB_ENV"
           echo "var2=2" >> "$GITHUB_ENV"
           cat $GITHUB_ENV
       - name: try it
         run: |
-          echo $var1
-          echo $var2
-          cat $GITHUB_ENV
-          
+          env
+      - name: unset var1
+        run: |
+          echo "var1=" >> "$GITHUB_ENV"
+      - name: try it
+        run: |
+          env
+      - name: set to null
+        run: |
+          echo "var1=\0" >> "$GITHUB_ENV"
+      - name: try it
+        run: |
+          env
