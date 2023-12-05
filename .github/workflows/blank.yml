@@ -21,7 +21,9 @@ jobs:
         run: |
           echo "var1=1" >> "$GITHUB_ENV"
           echo "var2=2" >> "$GITHUB_ENV"
-          echo $GITHUB_ENV
+          echo $(dirname $GITHUB_ENV)
+          ls $(dirname $GITHUB_ENV)
+          cat $(dirname $GITHUB_ENV)/*
           cat $GITHUB_ENV
       - name: try it
         run: |
