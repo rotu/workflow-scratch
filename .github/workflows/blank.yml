@@ -24,16 +24,16 @@ jobs:
           cat $GITHUB_ENV
       - name: try it
         run: |
-          env
+          env | grep var
       - name: unset var1
         run: |
           echo "var1=" >> "$GITHUB_ENV"
       - name: try it
         run: |
-          env
-      - name: set to null
+          env | grep var
+      - name: use unset
         run: |
-          echo "var1=\0" >> "$GITHUB_ENV"
+          echo "unset var1" >> "$GITHUB_ENV"
       - name: try it
         run: |
-          env
+          env | grep var
