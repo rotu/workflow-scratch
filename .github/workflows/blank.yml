@@ -16,33 +16,15 @@ on:
 jobs:
   true-ish:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        x: [true]
-        include:
-          - x: true
-            y: foo
-          - x: true
-            y: foo
-          - x: 'true'
-            y: foo
-          - x: 1
-            y: foo
-          - x: "true"
-            y: foo
-    name: ${{ toJSON(matrix) }}
     steps:
-      - name: Run a one-line script
-        run: echo ${{ toJSON(matrix.x) }}
-  exclude:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        x: ['true', true, 1]
-        exclude:
-          - x: 'true'
-    steps:
-      - name: Run a one-line script
-        run: echo '${{ toJSON(matrix.x) }}'
-      - if: matrix.x == fromJSON('{"k":"v"}')
-        run: echo foo
+      - name: set a
+        run: |
+          echo "var1=1" >> "$GITHUB_ENV"
+          echo "var2=2" >> "$GITHUB_ENV"
+          cat $GITHUB_ENV
+      - name: try it
+        run: |
+          echo $var1
+          echo $var2
+          cat $GITHUB_ENV
+          
