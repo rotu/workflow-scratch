@@ -27,7 +27,8 @@ jobs:
           env | grep var
       - name: use unset
         run: |
-          echo var1=$'\0' >> "$GITHUB_ENV"
+          unset var1
+          export var1
       - name: try it
         run: |
           env | grep var
