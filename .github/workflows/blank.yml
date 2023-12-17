@@ -22,6 +22,7 @@ jobs:
           mkdir artifacts
           echo foo > artifacts/foo.txt
           echo bar > artifacts/bar.txt
+          mkdir artifacts/blah
           ln -s artifacts/foo.txt artifacts/foolink.txt
       - uses: actions/upload-artifact@v4.0.0
         with:
