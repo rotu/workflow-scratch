@@ -17,20 +17,12 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: set vars
+      - name: create some files
         run: |
-          echo "var1=1" >> "$GITHUB_ENV"
-          echo "var2=2" >> "$GITHUB_ENV"
-          echo $(dirname $GITHUB_ENV)
-          ls $(dirname $GITHUB_ENV)
-          cat $(dirname $GITHUB_ENV)/*
-          cat $GITHUB_ENV
-      - name: try it
-        run: |
-          env | grep var
-      - name: delete files
-        run: |
-          rm -rf $(dirname $GITHUB_ENV)
-      - name: try it
-        run: |
-          env | grep var
+          mkdir artifacts
+          echo foo > artifacts/foo.txt
+          echo bar > artifacts/bar.txt
+          ln -s artifacts/foo.txt artifacts/foolink.txt
+      - uses: actions/upload-artifact@v4.0.0
+        with:
+          path: artifacts
