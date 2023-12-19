@@ -14,3 +14,4 @@ jobs:
       - name: print processes
         run: |
           get-process
+      - run: msbuild --help
