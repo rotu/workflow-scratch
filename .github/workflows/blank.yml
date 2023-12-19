@@ -4,26 +4,13 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel  
 jobs:
   my-job:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - name: create some files
+      - name: print processes
         run: |
-          mkdir artifacts
-          echo foo > artifacts/foo.txt
-          echo bar > artifacts/bar.txt
-          mkdir artifacts/blah
-          ln -s artifacts/foo.txt artifacts/foolink.txt
-      - uses: actions/upload-artifact@v4.0.0
-        with:
-          path: artifacts
+          ps -ef
