@@ -13,4 +13,4 @@ jobs:
     steps:
       - name: print processes
         run: |
-          ps -ef
+          get-process
