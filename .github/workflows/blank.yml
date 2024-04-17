@@ -14,8 +14,6 @@ jobs:
       - name: print processes
         run: |
           get-process
-      - uses: microsoft/setup-msbuild@v1.1
-      - run: cl
       - name: print processes
         run: |
           get-process
