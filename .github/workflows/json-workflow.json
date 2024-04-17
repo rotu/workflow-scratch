@@ -1,4 +1,4 @@
 {
     "name":"test json workflow",
-    "on":["push"]
+    "on":{"push":null}
 }
