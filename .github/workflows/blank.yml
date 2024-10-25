@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: Update git for windows
         if: runner.os == 'Windows'
-        run: git update-git-for-windows --yes
+        run: sh -x /mingw64/bin/git-update-git-for-windows
         shell: pwsh
