@@ -15,10 +15,11 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           $git = (Get-Command git).Source
-          Get-Process
+          Get-Process | Where-Object { $_.StartTime -ne $null } | Sort-Object StartTime -Descending
           $process = Start-Process -NoNewWindow -PassThru -FilePath $git -ArgumentList "update-git-for-windows","-y"
+          Get-Process | Where-Object { $_.StartTime -ne $null } | Sort-Object StartTime -Descending
           $process.WaitForExit(90000)
-          Get-Process
+          Get-Process | Where-Object { $_.StartTime -ne $null } | Sort-Object StartTime -Descending
           if (-not $process.HasExited) {
               Write-Output "Process did not exit within 90 seconds. Terminating."
               $process.Kill()
