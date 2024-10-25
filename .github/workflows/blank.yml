@@ -1,19 +1,12 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: Scratch
 on:
   push:
   workflow_dispatch:
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel  
 jobs:
   my-job:
     runs-on: windows-latest
     steps:
-      - name: print processes
-        run: |
-          get-process
-      - name: print processes
-        run: |
-          get-process
+      - name: Update git for windows
+        if: runner.os == 'Windows'
+        run: git update-git-for-windows --yes
+        shell: pwsh
