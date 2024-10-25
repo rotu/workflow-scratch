@@ -18,7 +18,6 @@ jobs:
       - shell: pwsh
         if: always()
         run: |
-          Start-Sleep -Seconds 15
           [Reflection.Assembly]::LoadWithPartialName("System.Drawing")
           function screenshot([Drawing.Rectangle]$bounds, $path) {
              $bmp = New-Object Drawing.Bitmap $bounds.width, $bounds.height
@@ -37,4 +36,4 @@ jobs:
         if: always()
         with:
           name: screenshot
-          path: "*.png"
+          path: .
