@@ -30,7 +30,7 @@ jobs:
           }
           $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
           screenshot $bounds "screenshot1.png"
-          Start-Sleep -Seconds 15
+          Start-Sleep -Seconds 90
           screenshot $bounds "screenshot2.png"
 
       - uses: actions/upload-artifact@v4
