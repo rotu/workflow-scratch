@@ -14,7 +14,7 @@ jobs:
       - name: Update git for windows
         if: runner.os == 'Windows'
         run: |
-          sh -x /mingw64/bin/git-update-git-for-windows -y
+          Start-Process -Wait git update-git-for-windows
         shell: pwsh
         env:
           GIT_TRACE: 1
