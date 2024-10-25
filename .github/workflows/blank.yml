@@ -9,8 +9,9 @@ jobs:
       - shell: bash
         run: |
          ls -Al /c/Users/runneradmin/
-         git config -f /c/Users/runneradmin/.git-for-windows-updater testing1.testing1 1
-         git config -f C:/Users/runneradmin/.git-for-windows-updater testing2.testing2 2
+         git config -f /c/Users/runneradmin/git-config-test testing1.testing1 1
+         git config -f C:/Users/runneradmin/git-config-test testing2.testing2 2
+         cat  /c/Users/runneradmin/git-config-test
         
       - name: Update git for windows
         if: runner.os == 'Windows'
