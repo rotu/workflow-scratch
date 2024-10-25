@@ -34,7 +34,8 @@ jobs:
           screenshot $bounds "screenshot1.png"
           Start-Sleep -Seconds 90
           screenshot $bounds "screenshot2.png"
-      - run: |
+      - if: always()
+        run: |
           gcm -All sh
           bash -c ps
           git --version
