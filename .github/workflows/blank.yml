@@ -6,13 +6,6 @@ jobs:
   my-job:
     runs-on: windows-latest
     steps:
-      - shell: bash
-        run: |
-         ls -Al /c/Users/runneradmin/
-         git config -f /c/Users/runneradmin/git-config-test testing1.testing1 1
-         git config -f C:/Users/runneradmin/git-config-test testing2.testing2 2
-         cat  /c/Users/runneradmin/git-config-test
-        
       - name: Update git for windows
         if: runner.os == 'Windows'
         run: sh -x /mingw64/bin/git-update-git-for-windows
