@@ -18,6 +18,7 @@ jobs:
       - shell: pwsh
         if: always()
         run: |
+          Start-Sleep -Seconds 15
           [Reflection.Assembly]::LoadWithPartialName("System.Drawing")
           function screenshot([Drawing.Rectangle]$bounds, $path) {
              $bmp = New-Object Drawing.Bitmap $bounds.width, $bounds.height
@@ -28,9 +29,12 @@ jobs:
              $bmp.Dispose()
           }
           $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
-          screenshot $bounds "screenshot.png"
+          screenshot $bounds "screenshot1.png"
+          Start-Sleep -Seconds 15
+          screenshot $bounds "screenshot2.png"
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshot
-          path: "screenshot.png"
+          path: "*.png"
