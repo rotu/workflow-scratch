@@ -10,7 +10,8 @@ jobs:
           gcm -All git
           bash -c ps
           git --version
-          gcm -All start
+          gcm -All cmd
+          echo $env:COMSPEC
         shell: pwsh
       - run: |
           which start
