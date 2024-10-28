@@ -20,6 +20,8 @@ jobs:
           which -a sh
           which -a git
           cat $(which start)
+          cygpath -m $(/usr/bin/bash)
+          cygpath -m $(/bin/bash)
           cygpath -m $(which env)
           cygpath -m $(which bash)
           cygpath -m $(which sh)
