@@ -16,8 +16,8 @@ jobs:
       - run: |
           which start
           cat $(which start)
-          which bash
-          which sh
+          cygpath -m $(which bash)
+          cygpath -m $(which sh)
           echo $COMSPEC
           env
         shell: bash
