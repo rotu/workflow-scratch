@@ -18,8 +18,10 @@ jobs:
           cat $(which start)
           cygpath -m $(which bash)
           cygpath -m $(which sh)
+          cygpath -m /mingw64/bin
           echo $COMSPEC
           env
+          ls /mingw64/bin
         shell: bash
       # - name: Update git for windows
       #   if: runner.os == 'Windows'
