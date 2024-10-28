@@ -1,19 +1,85 @@
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the workflow will run
+name: Scratch
 on:
   push:
   workflow_dispatch:
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel  
 jobs:
   my-job:
     runs-on: windows-latest
     steps:
-      - name: print processes
-        run: |
-          get-process
-      - name: print processes
-        run: |
-          get-process
+      - run: |
+          gcm -All git
+          bash -c ps
+          git --version
+          gcm -All cmd
+          echo $env:COMSPEC
+        shell: pwsh
+      - run: |
+          set -x
+          which start
+          which -a bash
+          which -a sh
+          which -a git
+          which -a start
+          cat $(which start)
+          cygpath -m /usr/bin/
+          cygpath -m /bin/
+          cygpath -m /cmd/
+          cygpath -m $(which env)
+          cygpath -m $(which bash)
+          cygpath -m $(which sh)
+          cygpath -m /mingw64/bin
+          nohup touch nohuptest.txt
+          echo $COMSPEC
+          env
+          ls -l /mingw64/bin > ls-mingw64-bin.txt
+          ls -l /usr/bin > usr-bin.txt
+          ls -l .
+          which -a nohup
+          cygpath -m $(which nohup)
+          head $(which nohup)
+        shell: bash
+        
+      # - name: Update git for windows
+      #   if: runner.os == 'Windows'
+      #   run: |
+      #     $git = (Get-Command git).Source
+      #     Get-Process | Where-Object { $_.StartTime -ne $null } | Sort-Object StartTime -Descending
+      #     $process = Start-Process -NoNewWindow -PassThru -FilePath $git -ArgumentList "update-git-for-windows","-y"
+      #     Get-Process | Where-Object { $_.StartTime -ne $null } | Sort-Object StartTime -Descending
+      #     $process.WaitForExit(90000)
+      #     Get-Process | Where-Object { $_.StartTime -ne $null } | Sort-Object StartTime -Descending
+      #     if (-not $process.HasExited) {
+      #         Write-Output "Process did not exit within 90 seconds. Terminating."
+      #         $process.Kill()
+      #     } else {
+      #         Write-Output "Process exited with code $($process.ExitCode)"
+      #     }
+      #   shell: pwsh
+      #   env:
+      #     GIT_TRACE: 1
+      # - shell: pwsh
+      #   if: always()
+      #   run: |
+      #     [Reflection.Assembly]::LoadWithPartialName("System.Drawing")
+      #     function screenshot([Drawing.Rectangle]$bounds, $path) {
+      #        $bmp = New-Object Drawing.Bitmap $bounds.width, $bounds.height
+      #        $graphics = [Drawing.Graphics]::FromImage($bmp)
+      #        $graphics.CopyFromScreen($bounds.Location, [Drawing.Point]::Empty, $bounds.size)
+      #        $bmp.Save($path)
+      #        $graphics.Dispose()
+      #        $bmp.Dispose()
+      #     }
+      #     $bounds = [Drawing.Rectangle]::FromLTRB(0, 0, 1000, 900)
+      #     screenshot $bounds "screenshot1.png"
+      #     Start-Sleep -Seconds 90
+      #     screenshot $bounds "screenshot2.png"
+      # - if: always()
+      #   run: |
+      #     gcm -All git
+      #     bash -c ps
+      #     git --version
+      #   shell: pwsh
+      # - uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     path: .
