@@ -16,6 +16,7 @@ jobs:
       - run: |
           which start
           cat $(which start)
+          cygpath -m $(which env)
           cygpath -m $(which bash)
           cygpath -m $(which sh)
           cygpath -m /mingw64/bin
