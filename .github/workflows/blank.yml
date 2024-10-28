@@ -10,7 +10,10 @@ jobs:
           gcm -All git
           bash -c ps
           git --version
+          gcm -All start
         shell: pwsh
+      - run: which start
+        shell: bash
       - name: Update git for windows
         if: runner.os == 'Windows'
         run: |
