@@ -33,6 +33,7 @@ jobs:
           env
           ls -l /mingw64/bin > ls-mingw64-bin.txt
           ls -l /usr/bin > usr-bin.txt
+          ls -l .
         shell: bash
         
       # - name: Update git for windows
