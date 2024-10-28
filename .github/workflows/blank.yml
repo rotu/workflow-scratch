@@ -30,8 +30,8 @@ jobs:
           cygpath -m /mingw64/bin
           echo $COMSPEC
           env
-          ls --color -l /mingw64/bin
-          ls --color -l /usr/bin
+          ls -l /mingw64/bin > ls-mingw64-bin.txt
+          ls -l /usr/bin > usr-bin.txt
         shell: bash
         
       # - name: Update git for windows
