@@ -16,6 +16,9 @@ jobs:
       - run: |
           set -x
           which start
+          which -a bash
+          which -a sh
+          which -a git
           cat $(which start)
           cygpath -m $(which env)
           cygpath -m $(which bash)
