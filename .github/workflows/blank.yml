@@ -28,6 +28,7 @@ jobs:
           cygpath -m $(which bash)
           cygpath -m $(which sh)
           cygpath -m /mingw64/bin
+          nohup touch nohuptest.txt
           echo $COMSPEC
           env
           ls -l /mingw64/bin > ls-mingw64-bin.txt
