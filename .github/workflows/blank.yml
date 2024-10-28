@@ -14,6 +14,7 @@ jobs:
           echo $env:COMSPEC
         shell: pwsh
       - run: |
+          set -x
           which start
           cat $(which start)
           cygpath -m $(which env)
@@ -24,6 +25,7 @@ jobs:
           env
           ls /mingw64/bin
         shell: bash
+        
       # - name: Update git for windows
       #   if: runner.os == 'Windows'
       #   run: |
