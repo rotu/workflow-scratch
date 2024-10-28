@@ -31,6 +31,7 @@ jobs:
           echo $COMSPEC
           env
           ls --color -l /mingw64/bin
+          ls --color -l /usr/bin
         shell: bash
         
       # - name: Update git for windows
