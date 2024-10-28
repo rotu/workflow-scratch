@@ -17,6 +17,8 @@ jobs:
           cat $(which start)
           which bash
           which sh
+          echo $COMSPEC
+          env
         shell: bash
       # - name: Update git for windows
       #   if: runner.os == 'Windows'
