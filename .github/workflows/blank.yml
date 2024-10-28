@@ -19,6 +19,7 @@ jobs:
           which -a bash
           which -a sh
           which -a git
+          which -a start
           cat $(which start)
           cygpath -m /usr/bin/
           cygpath -m /bin/
