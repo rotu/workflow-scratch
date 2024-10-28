@@ -15,9 +15,8 @@ jobs:
       - run: |
           which start
           cat $(which start)
-          help start
-          start --help
-          man start
+          which bash
+          which sh
         shell: bash
       # - name: Update git for windows
       #   if: runner.os == 'Windows'
@@ -53,13 +52,13 @@ jobs:
       #     screenshot $bounds "screenshot1.png"
       #     Start-Sleep -Seconds 90
       #     screenshot $bounds "screenshot2.png"
-      - if: always()
-        run: |
-          gcm -All git
-          bash -c ps
-          git --version
-        shell: pwsh
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          path: .
+      # - if: always()
+      #   run: |
+      #     gcm -All git
+      #     bash -c ps
+      #     git --version
+      #   shell: pwsh
+      # - uses: actions/upload-artifact@v4
+      #   if: always()
+      #   with:
+      #     path: .
