@@ -35,7 +35,8 @@ jobs:
           ls -l /usr/bin > usr-bin.txt
           ls -l .
           which -a nohup
-          cat $(which nohup)
+          cygpath -m $(which nohup)
+          head $(which nohup)
         shell: bash
         
       # - name: Update git for windows
