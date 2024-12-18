@@ -12,6 +12,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: print processes
+        shell: bash
         run: |
           echo "foo=abc" >> $GITHUB_ENV
           echo "bar= x~yz" >> $GITHUB_ENV
