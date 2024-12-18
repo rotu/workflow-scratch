@@ -16,6 +16,7 @@ jobs:
           echo "foo=abc" >> $GITHUB_ENV
           echo "bar= x~yz" >> $GITHUB_ENV
       - name: print 1
+        shell: bash
         run: |
          echo $foo
          echo "$foo"
