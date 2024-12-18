@@ -13,7 +13,16 @@ jobs:
     steps:
       - name: print processes
         run: |
-          get-process
-      - name: print processes
+          echo "foo=abc" >> $GITHUB_ENV
+          echo "bar= x~yz" >> $GITHUB_ENV
+      - name: print 1
         run: |
-          get-process
+         echo $foo
+         echo "$foo"
+         echo $bar
+         echo "$bar"
+      - name: print 2
+        shell: pwsh
+        run: |
+         echo $env:foo
+         echo $env:bar
