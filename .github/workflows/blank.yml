@@ -11,7 +11,7 @@ jobs:
   my-job:
     defaults:
       run:
-        shell: ash -c {0}
+        shell: ash --verbose --xtrace -c {0}
     timeout-minutes: 3  
     container:
       image: alpine
