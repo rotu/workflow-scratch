@@ -11,7 +11,7 @@ jobs:
   my-job:
     defaults:
       run:
-        shell: "ash --verbose --xtrace {0}"
+        shell: "ash -v -x {0}"
         working-directory: /root
     timeout-minutes: 3  
     container:
