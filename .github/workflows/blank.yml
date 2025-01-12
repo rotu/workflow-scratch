@@ -23,6 +23,8 @@ jobs:
       matrix:
         arch: ["arm64", "arm/v7"]
     steps:
+      - name: env
+        run: env
       - name: install nodejs
         run: |
           apk add nodejs-current
