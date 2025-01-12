@@ -11,15 +11,15 @@ jobs:
   my-job:
     defaults:
       run:
-        shell: /bin/ash
+        shell: ash
     timeout-minutes: 3  
     container:
-      image: alpine:3.18
+      image: alpine
       options: "--platform=linux/${{ matrix.arch }} "
     runs-on: ubuntu-latest
     strategy: 
       matrix:
-        arch: [arm64, "arm/v7"]
+        arch: ["arm64", "arm/v7"]
     steps:
       - name: install nodejs
         run: |
