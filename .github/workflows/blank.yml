@@ -9,11 +9,25 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel  
 jobs:
   my-job:
-    runs-on: windows-latest
+    defaults:
+      run:
+        shell: "ash -v -x {0}"
+        working-directory: /root
+    timeout-minutes: 3  
+    container:
+      image: docker.io/library/alpine:latest
+      options: --platform "linux/${{ matrix.arch }}"
+    runs-on: ubuntu-latest
+    strategy: 
+      fail-fast: false
+      matrix:
+        arch: ["arm64", "arm/v7"]
     steps:
-      - name: print processes
+      - name: env
+        run: env
+      - name: install nodejs
         run: |
-          get-process
-      - name: print processes
+          apk add nodejs-current
+      - name: run node
         run: |
-          get-process
+          node -p 42
