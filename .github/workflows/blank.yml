@@ -13,7 +13,7 @@ jobs:
     container:
       image: alpine:3.18
       options: "--platform=linux-${{ matrix.arch }}"
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     strategy: 
       matrix:
         arch: [arm64, "arm/v7"]
