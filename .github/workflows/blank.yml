@@ -12,6 +12,7 @@ jobs:
     defaults:
       run:
         shell: "ash --verbose --xtrace {0}"
+        working-directory: /root
     timeout-minutes: 3  
     container:
       image: docker.io/library/alpine:latest
