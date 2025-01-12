@@ -16,8 +16,7 @@ jobs:
     timeout-minutes: 3  
     container:
       image: docker.io/library/alpine:latest
-      options: --help
-      # options: "--platform=linux/${{ matrix.arch }}"
+      options: --platform "linux/${{ matrix.arch }}"
     runs-on: ubuntu-latest
     strategy: 
       fail-fast: false
