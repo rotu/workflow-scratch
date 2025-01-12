@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 3  
     container:
       image: alpine:3.18
-      options: "--platform=linux-${{ matrix.arch }}"
+      options: "--platform=linux/${{ matrix.arch }}"
     runs-on: ubuntu-latest
     strategy: 
       matrix:
