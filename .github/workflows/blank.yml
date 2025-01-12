@@ -11,7 +11,7 @@ jobs:
   my-job:
     defaults:
       run:
-        shell: ash --verbose --xtrace -it -c {0}
+        shell: ash --verbose --xtrace {0}
     timeout-minutes: 3  
     container:
       image: docker.io/library/alpine:latest
