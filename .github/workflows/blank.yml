@@ -18,6 +18,7 @@ jobs:
       options: "--platform=linux/${{ matrix.arch }} "
     runs-on: ubuntu-latest
     strategy: 
+      fail-fast: false
       matrix:
         arch: ["arm64", "arm/v7"]
     steps:
